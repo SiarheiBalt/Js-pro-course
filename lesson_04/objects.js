@@ -152,24 +152,21 @@ let manWorker = new Worker('Vitalia', 'Sidorov', 100, 22);
  * Задание 8
  * Сделать задание 7 с использованием классов.
  */
-class MyString {
-    constructor(options) {
-        this.string = options
-    }
-    reverse() {
+ function MyString() {
+
+    this.reverse = function () {
         return this.string.split('').reverse().join('');
     }
-    ucFirst() {
-        return this.string.split('').map((el, i) => i === 0 ? el.toUpperCase() : el)
+    this.ucFirst = function (value) {
+        return value.split('').map((el, i) => i === 0 ? el.toUpperCase(): el)
         .join('')
     }
-    ucWords() {
-        let a = this.string.split(' ');
-        return a.map((el) => el.split('').map((el, i) => i === 0 ? el.toUpperCase() : el)
-        .join(''));
-    } 
+    this.ucWords = function (value) {
+        let a = value.split(' ');
+        return a.map((el) => this.ucFirst(el)).join(' ')
+    }
 }
-let string = new MyString('hello world')
+let func = new MyString()
 
 /**
  * Задание 9
