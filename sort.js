@@ -31,3 +31,18 @@ Array.prototype.bubbleSort = function () {
     return this;
 }
 console.log(arr.bubbleSort());
+
+Array.prototype.selectionSort = function() {
+    for (let i = 0; i < this.length; i++) {
+       let min;
+       for (let index = i; index < this.length; index++) {
+           if (this[i] > this[index]) {
+               min = this[index];
+               this[index] = this[i];
+               this[i] = min;
+           }         
+       }
+    }
+    return this;
+}
+console.log(arr.selectionSort());
