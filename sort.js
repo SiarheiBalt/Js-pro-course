@@ -46,3 +46,26 @@ Array.prototype.selectionSort = function() {
     return this;
 }
 console.log(arr.selectionSort());
+
+let arr5 = [78, 5,  9, 2, 6, 45, 3, 1];
+
+const quckSort = (array) => {
+    if (array.length <= 1) return array;
+
+    let privoIndex = Math.floor(array.length / 2);
+    let privot = array[privoIndex];
+    let less = [];
+    let greater = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if(i === privoIndex) continue;
+        if(array[i] < privot) {
+            less.push(array[i])
+        } else {
+            greater.push(array[i])
+        };
+    };
+    return [...quckSort(less), privot, ...quckSort(greater)]
+};
+
+console.log(quckSort(arr5))
