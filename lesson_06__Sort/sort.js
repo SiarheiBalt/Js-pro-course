@@ -11,7 +11,7 @@ Array.prototype.insertionSort = function () {
             a--;
         }
         return arr;
-    }
+    } 
     return this;
 }
 let arr = [78, 2, 5, 1, 9, 2, 6, 45, 3, 1];
