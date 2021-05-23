@@ -1,4 +1,5 @@
 
+
 export const Avatar = (props) => {
     console.log(props.avatar);
     return (
