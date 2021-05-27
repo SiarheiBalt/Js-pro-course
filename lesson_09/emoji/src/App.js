@@ -16,7 +16,7 @@ function App() {
     } else {
       setMain(store.getState(1000))
     }
-  }
+  } 
   const filter = (event, arr) => {
     return arr.filter((el) => {
       let index = event.target.value.length - 1
