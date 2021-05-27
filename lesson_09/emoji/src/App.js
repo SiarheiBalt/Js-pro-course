@@ -10,11 +10,11 @@ function App() {
   const [main, setMain] = useState(store.getState(100));
 
   const onchngeInput = (event) => {
+    setInput(event.target.value);
     let data = store.getState(100).filter((el) => {
       return el.title.toLowerCase().includes(event.target.value) || el.keywords.toLowerCase().includes(event.target.value)
     })
     setMain(data)
-    setInput(event.target.value);
   }
 
   return (
