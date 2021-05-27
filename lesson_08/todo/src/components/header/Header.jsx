@@ -3,8 +3,9 @@ import { Input } from "./input/Input"
 import cl from "./Header.module.css"
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
+import { Form } from "./form/Form"
 
-export const Header = ({onClick, text, onChange}) => {
+export const Header = ({submit, text, onChangeInput}) => {
 
     return (<div>
         <div className={cl.header_top}>
@@ -14,10 +15,7 @@ export const Header = ({onClick, text, onChange}) => {
                 <span><NavLink to="/Arhive" activeClassName={cl.activ} className={cl.item}>Arhive</NavLink></span>
             </div>
         </div>
-        <div className={cl.form_input}>
-            <Input text={text}  onChange={onChange}/>
-            <Button onClick={onClick}/>
-        </div>
+        <Form text={text} onChangeInput={onChangeInput} submit={submit}/>
     </div>
     )
 }

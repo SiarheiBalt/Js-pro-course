@@ -13,3 +13,7 @@ ul li:nth-child(2n) {
 ul li:hover {
     background-color: rgb(223, 223, 223);
 }
+
+li {
+    list-style-type: none;
+}
