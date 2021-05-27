@@ -6,24 +6,15 @@ import { Input } from './components/Input';
 import { useState } from 'react';
 
 function App() {
-  let [updateInput, setInput] = useState('');
-  let [main, setMain] = useState(store.getState(1000));
+  const [updateInput, setInput] = useState('');
+  const [main, setMain] = useState(store.getState(100));
 
   const onchngeInput = (event) => {
+    let data = store.getState(100).filter((el) => {
+      return el.title.toLowerCase().includes(event.target.value) || el.keywords.toLowerCase().includes(event.target.value)
+    })
+    setMain(data)
     setInput(event.target.value);
-    if (event.target.value.length > 0) {
-      setMain(filter(event, main));
-    } else {
-      setMain(store.getState(1000))
-    }
-  }
-  const filter = (event, arr) => {
-    return arr.filter((el) => {
-      let index = event.target.value.length - 1
-      if (el.title[index] !== undefined && el.title[index].toString().toLowerCase() === event.target.value[index].toString().toLowerCase()) {
-        return el
-      }
-    });
   }
 
   return (
