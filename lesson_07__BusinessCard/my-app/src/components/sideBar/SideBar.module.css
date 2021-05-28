@@ -1,0 +1,11 @@
+
+.sideBar {
+    grid-area: s;
+    border-radius: 3px;
+}
+
+img {
+    width: 400px;
+    border-radius: 3px;
+    margin-bottom: -4px;
+}
