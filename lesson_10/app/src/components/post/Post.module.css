@@ -1,0 +1,12 @@
+.post {
+  background-color: powderblue;
+  border-radius: 10px;
+}
+.text {
+  border-top: solid white 1px;
+}
+.hide {
+  display: none;
+}
+.show {
+}
