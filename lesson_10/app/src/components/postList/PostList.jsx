@@ -10,16 +10,12 @@ export const PostList = () => {
     const postsResponse = await responseP.json();
     const responseU = await fetch("https://jsonplaceholder.typicode.com/users");
     const usersResponse = await responseU.json();
-    postsResponse.map((element, i) => {
-      i < 5 ? (element.class = "show") : (element.class = "hide");
-      usersResponse.forEach((el) => {
-        if (el.id === element.id) {
-          element.name = el.name;
-          return element;
-        }
-      });
+    const posts = postsResponse.map((post, i) => {
+      i < 5 ? (post.class = "show") : (post.class = "hide");
+      const user = usersResponse.find((user) => user.id === post.userId);
+      return { ...post, user };
     });
-    setPosts(postsResponse);
+    setPosts(posts);
   }, []);
   const onClick = () => {
     let count = 5;
@@ -41,7 +37,7 @@ export const PostList = () => {
             key={Math.random().toString(36).substr(2, 9)}
             title={element.title}
             postText={element.body}
-            autor={element.name}
+            autor={element.user.name}
             addClass={element.class}
           />
         ))}

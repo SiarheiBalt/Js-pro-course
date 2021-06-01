@@ -19,7 +19,7 @@ export const ImageList = () => {
       return acc;
     }, []);
   };
-  const onClick = (e) => {};
+
   return (
     <div className={cl.grid}>
       {images.map((el) => (
@@ -27,7 +27,6 @@ export const ImageList = () => {
           key={Math.random().toString(36).substr(2, 9)}
           title={el.title}
           url={el.thumbnailUrl}
-          onClick={onClick}
           style={el.style}
         />
       ))}
