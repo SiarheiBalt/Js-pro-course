@@ -1,16 +1,22 @@
 import { useState } from "react";
+import { Button } from "../../header/input/Button";
 
-export const LiCurrent = ({currentDeal}) => {
-  
-    const [checked, setChecked] = useState(false);
+export const LiCurrent = ({ currentDeal, onClickButton }) => {
+  const [checked, setChecked] = useState(false);
 
-    const onClickCheckbox = () => {
-        setChecked(!checked);
-        // ?
-        currentDeal.checked = !checked;
-    }
+  const onClickCheckbox = () => {
+    currentDeal.checked = !checked;
+    setChecked(!checked);
+  };
 
-    return (
-        <li> <input  type="checkbox" checked={checked} onChange={onClickCheckbox}/>{currentDeal.item}</li>
-    )
-}
+  const onClickBut = () => {
+    onClickButton(currentDeal.id);
+  };
+  return (
+    <li style={{ textDecoration: checked ? "line-through" : "none" }}>
+      <input type="checkbox" checked={checked} onChange={onClickCheckbox} />
+      {currentDeal.item}
+      <Button submit={onClickBut} action={"Remove"} />
+    </li>
+  );
+};

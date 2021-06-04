@@ -1,14 +1,13 @@
-import cl from "./Input.module.css"
+import cl from "./Input.module.css";
 
-export const Button = ({ submit }) => {
+export const Button = ({ submit, action }) => {
+  const onClick = () => {
+    submit();
+  };
 
-    const onClick = () => {
-        submit()
-    }
-
-    return (
-        <div>
-            <button onClick={onClick}>Add</button>
-        </div>
-    )
-}
+  return (
+    <div>
+      <button onClick={onClick}>{action}</button>
+    </div>
+  );
+};

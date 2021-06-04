@@ -1,0 +1,42 @@
+.wrapper {
+  height: 250px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 90%;
+}
+.wrapper:hover {
+  opacity: 75%;
+}
+.title {
+  color: rgb(255, 255, 255);
+  font-weight: 650;
+  font-family: revert;
+  font-size: 1.25em;
+  margin-bottom: 25px;
+}
+.category {
+  width: 60px;
+  height: 28px;
+  background-color: rgb(255, 234, 0);
+  font-weight: 500;
+  font-family: revert;
+  margin: 25px;
+}
+.comment {
+  background-repeat: no-repeat;
+  background-size: 41px 33px;
+  margin: 25px;
+  width: 41px;
+  height: 25px;
+  color: rgb(255, 234, 0);
+  background-color: black;
+  opacity: 70%;
+  border-radius: 3px;
+  border: 1px solid rgb(255, 234, 0);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
