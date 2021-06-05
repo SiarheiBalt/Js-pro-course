@@ -1,0 +1,16 @@
+.post {
+  border: solid rgb(196, 196, 196) 1px;
+  width: 145px;
+  margin: 20px auto;
+  border-radius: 5px;
+}
+.span {
+}
+.autor {
+  color: rgb(86, 141, 249);
+}
+.div_autor {
+  background-color: rgb(247, 247, 247);
+  border-radius: 0 0 5px 5px;
+  margin-top: 12px;
+}
