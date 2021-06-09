@@ -2,11 +2,24 @@ import "./App.css";
 import { Post } from "./components/post/Post";
 import { store } from "./store";
 import { FacebookPost } from "./components/postFacebook/FacebookPost";
-import { useState } from "react";
+import React, { createContext, useState } from "react";
 import { Banner } from "./components/banner/Banner";
 import { Converter } from "./components/converter/Converter";
 import { Route } from "react-router";
 import { BrowserRouter } from "react-router-dom";
+
+const themes = {
+  light: {
+    color: "#000000",
+    background: "#eeeeee",
+  },
+  dark: {
+    color: "#ffffff",
+    background: "#222222",
+  },
+};
+
+export const ThemeContext = React.createContext(themes);
 
 function App11() {
   const onClickLike = () => {
@@ -42,7 +55,9 @@ function App11() {
         commentCount={store.state.banner[0].commentCount}
       />
       <h1>4</h1>
-      <Converter />
+      <ThemeContext.Provider value={themes}>
+        <Converter />
+      </ThemeContext.Provider>
     </div>
   );
 }

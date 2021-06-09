@@ -1,5 +1,5 @@
 import cl from "./App.module.css";
-import { BrowserRouter, NavLink, Route } from "react-router-dom";
+import { BrowserRouter, NavLink, Redirect, Route } from "react-router-dom";
 import App7 from "./components/lesson_07__BusinessCard/App";
 import App8 from "./components/lesson_08/Clicker/App";
 import AppToDo from "./components/lesson_08/ToDo/App";
@@ -11,6 +11,7 @@ import { FacebookPost } from "./components/lesson_11/components/postFacebook/Fac
 import { store } from "./components/lesson_11/store";
 import { Banner } from "./components/lesson_11/components/banner/Banner.jsx";
 import { Converter } from "./components/lesson_11/components/converter/Converter";
+import { CarouselList } from "./components/lesson_13/CarouselList";
 
 function App() {
   return (
@@ -82,10 +83,18 @@ function App() {
                 Converter
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/lesson_12" activeClassName={cl.activ}>
+                Carousel
+              </NavLink>
+            </li>
           </ol>
         </div>
         <div className={cl.main}>
-          <Route path="/lesson_07__BusinessCard" component={App7} />
+          <Route exact path="/lesson_07__BusinessCard" component={App7} />
+          <Route exact path="/">
+            <Redirect to="/lesson_07__BusinessCard" />
+          </Route>
           <Route path="/lesson_08/Clicker" component={App8} />
           <Route path="/lesson_08/ToDo" component={AppToDo} />
           <Route path="/lesson_09" component={AppEmoji} />
@@ -125,6 +134,7 @@ function App() {
             )}
           />
           <Route path="/lesson_11/components/converter" component={Converter} />
+          <Route path="/lesson_12" component={CarouselList} />
         </div>
       </div>
     </BrowserRouter>

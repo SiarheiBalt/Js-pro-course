@@ -9,16 +9,20 @@ import store from "./store";
 const App7 = () => {
   let props = store.getState();
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/lesson_07__BusinessCard">
       <div className={cl.app_wrapper}>
         <Header fullName={props.header.fullName} />
         <SideBar avatar={props.sideBar.avatar} />
         <div className={cl.app_wrapper__content}>
           {/* <Switch> */}
           <Route
+            exact
             path="/Main"
             render={() => <Main desc={props.content.description} />}
           />
+          <Route exact path="/">
+            <Redirect to="/Main" />
+          </Route>
           <Route
             path="/Education"
             render={() => <Education content={props.content.education} />}

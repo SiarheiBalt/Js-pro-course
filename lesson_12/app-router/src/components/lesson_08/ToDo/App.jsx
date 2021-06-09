@@ -3,18 +3,19 @@ import { Header } from "./components/header/Header";
 import { Main } from "./components/main/Main";
 import store from "./Store";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Arhive } from "./components/Arhive/Arhive";
 import { Button } from "./components/header/input/Button";
 
 function AppToDo() {
-  let storage = localStorage.getItem("todos");
-  const [todos, setTodos] = useState(
-    storage === "null" || storage === "undefined"
-      ? store.getState().current
-      : JSON.parse(storage)
-  );
-  const [textInput, setTextInput] = useState();
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    let storage = localStorage.getItem("todos");
+    setTodos(storage ? JSON.parse(storage) : []);
+  }, []);
+
+  const [textInput, setTextInput] = useState("");
 
   const submit = () => {
     if (!textInput) {
@@ -37,12 +38,7 @@ function AppToDo() {
     setTextInput(event.target.value);
   };
   const onRemoveItem = (id) => {
-    setTodos(
-      todos.reduce((acc, el) => {
-        if (el.id !== id) acc.push(el);
-        return acc;
-      }, [])
-    );
+    setTodos(todos.filter((el) => el.id !== id));
   };
   const onSelectedLi = () => {
     setTodos(todos.concat());
@@ -54,27 +50,31 @@ function AppToDo() {
     localStorage.setItem("todos", JSON.stringify(todos ? todos : []));
   }, [todos]);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={"lesson_08/ToDo"}>
       <div className={cl.app}>
         <Header
           submit={submit}
           text={textInput}
           onChangeInput={onChangeInput}
         />
-        <Switch>
-          <Route
-            path="/Main"
-            render={() => (
-              <Main
-                todos={todos}
-                onRemoveItem={onRemoveItem}
-                onSelectedLi={onSelectedLi}
-                onChekedLi={onChekedLi}
-              />
-            )}
-          />
-          <Route path="/Arhive" render={() => <Arhive />} />
-        </Switch>
+        {/* <Switch> */}
+        <Route
+          exact
+          path="/Main"
+          render={() => (
+            <Main
+              todos={todos}
+              onRemoveItem={onRemoveItem}
+              onSelectedLi={onSelectedLi}
+              onChekedLi={onChekedLi}
+            />
+          )}
+        />
+        <Route exact path="/">
+          <Redirect to="/Main" />
+        </Route>
+        <Route path="/Arhive" render={() => <Arhive />} />
+        {/* </Switch> */}
       </div>
     </BrowserRouter>
   );
