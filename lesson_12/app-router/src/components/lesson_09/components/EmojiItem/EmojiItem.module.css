@@ -1,0 +1,4 @@
+.item {
+  display: flex;
+  border-bottom: solid 1px gray;
+}

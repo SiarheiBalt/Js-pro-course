@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+.nav_Bar {
+  background-color: #e4f9ff;
+  width: 200px;
+  border-radius: 5px;
+  margin-right: 8px;
+}
+.main {
+}
+.nav_Bar a {
+  color: gray;
+  text-decoration: none;
+}
+.nav_Bar a:hover {
+  color: black;
+}
+.nav_Bar a.activ {
+  color: gold;
+  font-weight: 700;
+}

@@ -1,0 +1,27 @@
+.form_input {
+    display: flex;
+    width: 705px;
+    margin: auto;
+}
+.header_top {
+    display: flex;
+    justify-content: space-evenly;
+}
+.span {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+}
+
+.item {
+    color: rgb(141, 141, 141);
+    text-decoration: none;
+}
+.item:hover {
+    background-color: rgb(203, 229, 238);
+}
+.activ {
+    color: rgb(41, 41, 41);
+    background-color: rgb(231, 231, 231);
+}

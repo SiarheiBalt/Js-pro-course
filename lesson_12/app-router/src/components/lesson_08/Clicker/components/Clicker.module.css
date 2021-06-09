@@ -1,0 +1,9 @@
+.clicker {
+  width: 150px;
+  background-color: rgb(196, 191, 191);
+  border-radius: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}

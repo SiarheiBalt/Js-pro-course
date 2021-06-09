@@ -1,0 +1,18 @@
+.button {
+  background-color: rgb(151, 173, 151);
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: all 0.3s;
+}
+.button:hover {
+  border: 1px solid black;
+}
+.reset {
+  background-color: rgb(250, 250, 101);
+}
+.minus {
+  background-color: rgb(245, 119, 119);
+}
