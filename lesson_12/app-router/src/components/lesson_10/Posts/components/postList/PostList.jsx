@@ -2,16 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../button/Button";
 import { Modal } from "../modal/Modal";
 import { Post } from "../post/Post";
+import { Preloader } from "../Preloader/Preloader";
 import cl from "./PostList.module.css";
 
 export const PostList = () => {
   const [posts, setPosts] = useState([]);
   const [isModal, setIsModal] = useState(false);
   const [user, setUser] = useState({});
+  const [preloader, setPreloader] = useState(false);
 
   let autors;
 
   useEffect(async () => {
+    setPreloader(true);
     const responseP = await fetch("https://jsonplaceholder.typicode.com/posts");
     const postsResponse = await responseP.json();
     const responseU = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -22,6 +25,7 @@ export const PostList = () => {
       const user = usersResponse.find((user) => user.id === post.userId);
       return { ...post, user };
     });
+    setPreloader(false);
     setPosts(posts);
   }, []);
 
@@ -51,6 +55,7 @@ export const PostList = () => {
 
   return (
     <div>
+      {preloader && <Preloader />}
       {isModal && <Modal onCloseModal={onCloseModal} user={user} />}
       <div className={cl.grid}>
         {posts.map((element) => (
@@ -64,15 +69,17 @@ export const PostList = () => {
           />
         ))}
       </div>
-      <Button
-        onClick={onClickAddPosts}
-        text="Show more"
-        addClass={
-          posts[posts.length - 1] && posts[posts.length - 1].class === "show"
-            ? "hide"
-            : "show"
-        }
-      />
+      {!preloader && (
+        <Button
+          onClick={onClickAddPosts}
+          text="Show more"
+          addClass={
+            posts[posts.length - 1] && posts[posts.length - 1].class === "show"
+              ? "hide"
+              : "show"
+          }
+        />
+      )}
     </div>
   );
 };
