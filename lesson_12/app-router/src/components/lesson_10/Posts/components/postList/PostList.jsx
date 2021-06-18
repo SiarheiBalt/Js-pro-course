@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, BrowserRouter, Route } from "react-router-dom";
 import { Button } from "../button/Button";
 import { Modal } from "../modal/Modal";
 import { Post } from "../post/Post";
 import { Preloader } from "../Preloader/Preloader";
 import cl from "./PostList.module.css";
+import { Info } from "../post/Info";
 
 export const PostList = () => {
   const [posts, setPosts] = useState([]);
   const [isModal, setIsModal] = useState(false);
   const [user, setUser] = useState({});
   const [preloader, setPreloader] = useState(false);
+  let history = useHistory();
 
   let autors;
 
@@ -20,6 +23,7 @@ export const PostList = () => {
     const responseU = await fetch("https://jsonplaceholder.typicode.com/users");
     const usersResponse = await responseU.json();
     autors = usersResponse;
+    // debugger;
     const posts = postsResponse.map((post, i) => {
       i < 5 ? (post.class = "show") : (post.class = "hide");
       const user = usersResponse.find((user) => user.id === post.userId);
@@ -52,6 +56,9 @@ export const PostList = () => {
   const onCloseModal = () => {
     setIsModal(false);
   };
+  const onClickGetInfo = (autorId) => {
+    history.push(`/lesson_10/Info/${autorId}`);
+  };
 
   return (
     <div>
@@ -66,6 +73,8 @@ export const PostList = () => {
             autor={element.user.name}
             addClass={element.class}
             onClickAutor={onClickAutor}
+            onClickGetInfo={onClickGetInfo}
+            autorId={element.user.id}
           />
         ))}
       </div>

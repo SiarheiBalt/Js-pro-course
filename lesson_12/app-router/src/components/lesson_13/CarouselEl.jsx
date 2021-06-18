@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const CarouselEl = ({ number, show }) => {
   return (
-    <Square style={{ display: !show && "none" }}>
+    // style={{ display: !show && "none" }}
+    <Square>
       <h3>{number}</h3>
     </Square>
   );

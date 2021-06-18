@@ -12,6 +12,7 @@ import { store } from "./components/lesson_11/store";
 import { Banner } from "./components/lesson_11/components/banner/Banner.jsx";
 import { Converter } from "./components/lesson_11/components/converter/Converter";
 import { CarouselList } from "./components/lesson_13/CarouselList";
+import { Info } from "./components/lesson_10/Posts/components/post/Info";
 
 function App() {
   return (
@@ -99,6 +100,7 @@ function App() {
           <Route path="/lesson_08/ToDo" component={AppToDo} />
           <Route path="/lesson_09" component={AppEmoji} />
           <Route path="/lesson_10/Posts" component={AppPosts} />
+          <Route path="/lesson_10/Info/:id" component={Info} />
           <Route path="/lesson_10/Focus" component={AppPictures} />
           <Route
             path="/lesson_11/components/post"

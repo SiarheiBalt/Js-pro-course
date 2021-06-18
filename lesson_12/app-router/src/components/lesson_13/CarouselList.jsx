@@ -8,8 +8,9 @@ export const CarouselList = () => {
   useEffect(() => {
     const arr = new Array(10).fill(0).map((el, i) => (el = i + 1));
     setPage(
+      // show: i < 3 ? true : false
       arr.reduce((acc, el, i) => {
-        acc.push({ value: el, show: i < 3 ? true : false });
+        acc.push({ value: el });
         return acc;
       }, [])
     );
