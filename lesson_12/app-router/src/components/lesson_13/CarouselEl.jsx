@@ -1,8 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-export const CarouselEl = ({ number, show }) => {
+export const CarouselEl = ({ number }) => {
   return (
-    // style={{ display: !show && "none" }}
     <Square>
       <h3>{number}</h3>
     </Square>
