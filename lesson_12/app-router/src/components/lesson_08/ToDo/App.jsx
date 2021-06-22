@@ -1,20 +1,16 @@
 import cl from "./App.module.css";
 import { Header } from "./components/header/Header";
 import { Main } from "./components/main/Main";
-import store from "./Store";
+
 import { useEffect, useState } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Arhive } from "./components/Arhive/Arhive";
-import { Button } from "./components/header/input/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { ACTIONS } from "../../../redux/reducers/constants";
 
 function AppToDo() {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    let storage = localStorage.getItem("todos");
-    setTodos(storage ? JSON.parse(storage) : []);
-  }, []);
-
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos);
   const [textInput, setTextInput] = useState("");
 
   const submit = () => {
@@ -30,25 +26,17 @@ function AppToDo() {
         cheked: false,
         selected: false,
       };
-      store.state = [...todos, el];
-      setTodos(store.getState());
+      dispatch({ type: ACTIONS.ADD_TODO, el });
     }
   };
   const onChangeInput = (event) => {
     setTextInput(event.target.value);
   };
-  const onRemoveItem = (id) => {
-    setTodos(todos.filter((el) => el.id !== id));
-  };
-  const onSelectedLi = () => {
-    setTodos(todos.concat());
-  };
-  const onChekedLi = () => {
-    setTodos(todos.concat());
-  };
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos ? todos : []));
   }, [todos]);
+
   return (
     <BrowserRouter basename={"lesson_08/ToDo"}>
       <div className={cl.app}>
@@ -57,24 +45,11 @@ function AppToDo() {
           text={textInput}
           onChangeInput={onChangeInput}
         />
-        {/* <Switch> */}
-        <Route
-          exact
-          path="/Main"
-          render={() => (
-            <Main
-              todos={todos}
-              onRemoveItem={onRemoveItem}
-              onSelectedLi={onSelectedLi}
-              onChekedLi={onChekedLi}
-            />
-          )}
-        />
+        <Route exact path="/Main" render={() => <Main todos={todos} />} />
         <Route exact path="/">
           <Redirect to="/Main" />
         </Route>
         <Route path="/Arhive" render={() => <Arhive />} />
-        {/* </Switch> */}
       </div>
     </BrowserRouter>
   );

@@ -1,10 +1,29 @@
 import cl from "./Main.module.css";
 import { LiCurrent } from "./liCurrent/liCurrent";
 import { Button } from "../header/input/Button";
-import { useEffect, useState } from "react";
 import { Text } from "./Text/Text";
+import { useDispatch } from "react-redux";
+import { ACTIONS } from "../../../../../redux/reducers/constants";
 
-export const Main = ({ todos, onRemoveItem, onSelectedLi, onChekedLi }) => {
+export const Main = ({ todos }) => {
+  const dispatch = useDispatch();
+
+  const checkSelected = () => {
+    todos.map((todo) =>
+      todo.selected && !todo.checked
+        ? dispatch({ type: ACTIONS.SET_CHECKED, id: todo.id })
+        : todo
+    );
+  };
+  const removeSelected = () => {
+    console.log(1);
+    todos.map((todo) =>
+      todo.selected
+        ? dispatch({ type: ACTIONS.REMOVE_TODO, id: todo.id })
+        : todo
+    );
+  };
+
   return (
     <div>
       <ul>
@@ -13,9 +32,6 @@ export const Main = ({ todos, onRemoveItem, onSelectedLi, onChekedLi }) => {
             <LiCurrent
               key={Math.random().toString(36).substr(2, 9)}
               currentDeal={el}
-              onRemoveItem={onRemoveItem}
-              onSelectedLi={onSelectedLi}
-              onChekedLi={onChekedLi}
             />
           ))}
       </ul>
@@ -23,15 +39,15 @@ export const Main = ({ todos, onRemoveItem, onSelectedLi, onChekedLi }) => {
         <div className={cl.ceil}>
           <Button
             disabled={todos.length === 0 || !todos.some((el) => el.selected)}
-            submit={"lll"}
+            submit={removeSelected}
             action={"Remove marked"}
           />
         </div>
         <div className={cl.ceil}>
           <Button
             disabled={todos.length === 0 || !todos.some((el) => el.selected)}
-            submit={"lll"}
-            action={"execute marked"}
+            submit={checkSelected}
+            action={"Complet marked"}
           />
         </div>
         <div className={cl.ceil}>

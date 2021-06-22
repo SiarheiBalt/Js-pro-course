@@ -1,39 +1,37 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { ACTIONS } from "../../../../../../redux/reducers/constants";
 import { Button } from "../../header/input/Button";
 
-export const LiCurrent = ({
-  currentDeal,
-  onRemoveItem,
-  onSelectedLi,
-  onChekedLi,
-}) => {
-  const [checked, setChecked] = useState(currentDeal.checked);
-  const [selected, setSelected] = useState(currentDeal.selected);
-  const onClickCheckbox = (event) => {
-    currentDeal.checked = !checked;
-    setChecked(!checked);
-    onChekedLi();
+export const LiCurrent = ({ currentDeal }) => {
+  const dispatch = useDispatch();
+
+  const onClickCheckbox = () => {
+    dispatch({ type: ACTIONS.SET_CHECKED, id: currentDeal.id });
   };
+
   const onClickSelect = (event) => {
     if (event?.target.type !== "checkbox" && event?.target.type !== "submit") {
-      currentDeal.selected = !selected;
-      setSelected(!selected);
-      onSelectedLi();
+      dispatch({ type: ACTIONS.SET_SELECTED, id: currentDeal.id });
     }
   };
   const onClickBut = () => {
-    onRemoveItem(currentDeal.id);
+    dispatch({ type: ACTIONS.REMOVE_TODO, id: currentDeal.id });
   };
   return (
     <li
       onClick={onClickSelect}
       style={{
-        textDecoration:
-          checked || currentDeal.checked ? "line-through" : "none",
-        backgroundColor: selected || currentDeal.selected ? "#80deea" : "",
+        textDecoration: currentDeal.checked ? "line-through" : "none",
+        backgroundColor:
+          currentDeal.selected || currentDeal.selected ? "#80deea" : "",
       }}
     >
-      <input type="checkbox" checked={checked} onChange={onClickCheckbox} />
+      <input
+        type="checkbox"
+        checked={currentDeal.checked}
+        onChange={onClickCheckbox}
+      />
       {currentDeal.item}
       <Button submit={onClickBut} action={"Remove"} />
     </li>
