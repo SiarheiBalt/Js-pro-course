@@ -3,7 +3,7 @@ import { postsReducer } from "./reducers/posts";
 import createSagaMiddleware from "redux-saga";
 
 import { todolistReducer } from "./reducers/todolist";
-import { postSaga } from "./sagas/postsSaga";
+import { autorSaga, postSaga } from "./sagas/postsSaga";
 
 const sagaMiddleWare = createSagaMiddleware();
 
@@ -15,3 +15,4 @@ export const storeHead = createStore(
 );
 
 sagaMiddleWare.run(postSaga);
+sagaMiddleWare.run(autorSaga);

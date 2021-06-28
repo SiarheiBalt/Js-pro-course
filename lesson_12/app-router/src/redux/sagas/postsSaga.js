@@ -1,4 +1,4 @@
-import { ACTIONS_POSTS } from "../reducers/constants";
+import { ACTIONS, ACTIONS_POSTS } from "../reducers/constants";
 import { takeEvery, call, put } from "redux-saga/effects";
 
 function* getPostsSaga() {
@@ -17,7 +17,6 @@ function* getPostsSaga() {
     const posts = postsResponse.map((post, i) => {
       i < 5 ? (post.class = "show") : (post.class = "hide");
       const user = usersResponse.find((user) => user.id === post.userId);
-
       return { ...post, user };
     });
     yield put({
@@ -29,4 +28,19 @@ function* getPostsSaga() {
 
 export function* postSaga() {
   yield takeEvery(ACTIONS_POSTS.GET_POSTS_REQUEST, getPostsSaga);
+}
+
+export function* getAutorSaga(action) {
+  try {
+    const response = yield call(() =>
+      fetch(`https://jsonplaceholder.typicode.com/users/${action.params.id}`)
+    );
+    const responseAutor = yield response.json();
+
+    yield put({ type: ACTIONS_POSTS.GET_AUTOR_SUCCES, responseAutor });
+  } catch (e) {}
+}
+
+export function* autorSaga() {
+  yield takeEvery(ACTIONS_POSTS.GET_AUTOR_REQUEST, getAutorSaga);
 }
