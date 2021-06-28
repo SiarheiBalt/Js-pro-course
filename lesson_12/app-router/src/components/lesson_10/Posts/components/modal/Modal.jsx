@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Modal = ({ onCloseModal, user }) => {
-  console.log(user);
   return (
     <Background onClick={() => onCloseModal()}>
       <Container onClick={(event) => event.stopPropagation()}>

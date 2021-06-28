@@ -4,7 +4,10 @@ import cl from "./../Header.module.css";
 
 export const Form = ({ text, onChangeInput, submit }) => {
   return (
-    <div className={cl.form_input}>
+    <div
+      className={cl.form_input}
+      onKeyPress={(e) => e.code === "Enter" && submit()}
+    >
       <Input text={text} onChangeInput={onChangeInput} />
       <Button submit={submit} action={"Add"} />
     </div>

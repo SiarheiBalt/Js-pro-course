@@ -16,7 +16,6 @@ export const Main = ({ todos }) => {
     );
   };
   const removeSelected = () => {
-    console.log(1);
     todos.map((todo) =>
       todo.selected
         ? dispatch({ type: ACTIONS.REMOVE_TODO, id: todo.id })

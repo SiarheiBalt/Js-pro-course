@@ -10,10 +10,10 @@ import { ACTIONS } from "../../../redux/reducers/constants";
 
 function AppToDo() {
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todolistReducer.todos);
   const [textInput, setTextInput] = useState("");
 
-  const submit = () => {
+  const submit = (e) => {
     if (!textInput) {
       alert("String can't be empty...");
     } else {
