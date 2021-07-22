@@ -1,0 +1,10 @@
+
+.clicker {
+    width: 150px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
