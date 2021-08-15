@@ -36,7 +36,7 @@ const playSound = (e) => {
   key.classList.add("playing");
   setTimeout(() => {
     key.classList.remove("playing");
-  }, 70);
+  }, 120);
 };
 document.addEventListener("keydown", playSound);
-document.addEventListener("mousedown", playSound);
+document.addEventListener("click", playSound);
