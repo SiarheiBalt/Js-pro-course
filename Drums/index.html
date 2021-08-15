@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drum-kit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="togle">
+        <button class="dramsBtn">DRUMS</button>
+        <button class="sintBtn">SYNTH</button>
+      </div>
+      <div class="drums">
+        <div class="key drums_key" data-key="Q">
+          <h2>Q</h2>
+          <span class="sound">COWBELL</span>
+        </div>
+        <div class="key drums_key" data-key="W">
+          <h2>W</h2>
+          <span class="sound">HIHAT</span>
+        </div>
+        <div class="key drums_key" data-key="E">
+          <h2>E</h2>
+          <span class="sound">KICK</span>
+        </div>
+        <div class="key drums_key" data-key="R">
+          <h2>R</h2>
+          <span class="sound">OPENHAT</span>
+        </div>
+        <div class="key drums_key" data-key="T">
+          <h2>T</h2>
+          <span class="sound">RIDE</span>
+        </div>
+        <div class="key drums_key" data-key="Y">
+          <h2>Y</h2>
+          <span class="sound">SNARE</span>
+        </div>
+        <div class="key drums_key" data-key="U">
+          <h2>U</h2>
+          <span class="sound">TINK</span>
+        </div>
+        <div class="key drums_key" data-key="I">
+          <h2>I</h2>
+          <span class="sound">TOM</span>
+        </div>
+      </div>
+      <div class="sint hide">
+        <div class="sint_title">
+          <h1>SYNTHESIZER</h1>
+        </div>
+        <div class="sint_keys">
+          <div class="key sint_whitekey" data-key="Z"><h3>Z</h3></div>
+          <div class="key sint_whitekey" data-key="X"><h3>X</h3></div>
+          <div class="key sint_whitekey" data-key="C"><h3>C</h3></div>
+          <div class="key sint_whitekey" data-key="V"><h3>V</h3></div>
+          <div class="key sint_whitekey" data-key="B"><h3>B</h3></div>
+          <div class="key sint_whitekey" data-key="N"><h3>N</h3></div>
+          <div class="key sint_whitekey" data-key="M"><h3>M</h3></div>
+          <div class="sint_blackKeys">
+            <div class="key sint_blackKey" data-key="S"><h3>S</h3></div>
+            <div class="key sint_blackKey" data-key="D"><h3>D</h3></div>
+            <div
+              class="sint_blackKey"
+              style="background-color: #2c2c2c00"
+            ></div>
+            <div class="key sint_blackKey" data-key="G"><h3>G</h3></div>
+            <div class="key sint_blackKey" data-key="H"><h3>H</h3></div>
+            <div class="key sint_blackKey" data-key="J"><h3>J</h3></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <audio data-key="Q" src="sounds/drums/cowbell.wav"></audio>
+    <audio data-key="W" src="sounds/drums/hihat.wav"></audio>
+    <audio data-key="E" src="sounds/drums/kick.wav"></audio>
+    <audio data-key="R" src="sounds/drums/openhat.wav"></audio>
+    <audio data-key="T" src="sounds/drums/ride.wav"></audio>
+    <audio data-key="Y" src="sounds/drums/snare.wav"></audio>
+    <audio data-key="U" src="sounds/drums/tink.wav"></audio>
+    <audio data-key="I" src="sounds/drums/tom.wav"></audio>
+
+    <audio data-key="Z" src="sounds/synth/C.wav"></audio>
+    <audio data-key="X" src="sounds/synth/D.wav"></audio>
+    <audio data-key="C" src="sounds/synth/E.wav"></audio>
+    <audio data-key="V" src="sounds/synth/F.wav"></audio>
+    <audio data-key="B" src="sounds/synth/G.wav"></audio>
+    <audio data-key="N" src="sounds/synth/A.wav"></audio>
+    <audio data-key="M" src="sounds/synth/B.wav"></audio>
+    <audio data-key="S" src="sounds/synth/Cdiez.wav"></audio>
+    <audio data-key="D" src="sounds/synth/Ddiez.wav"></audio>
+    <audio data-key="G" src="sounds/synth/Fdiez.wav"></audio>
+    <audio data-key="H" src="sounds/synth/Gdiez.wav"></audio>
+    <audio data-key="J" src="sounds/synth/Adiez.wav"></audio>
+
+    <script src="index.js"></script>
+  </body>
+</html>

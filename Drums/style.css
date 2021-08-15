@@ -1,0 +1,294 @@
+.container {
+  position: absolute;
+  background-image: url("pictures/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+}
+
+.drums {
+  position: relative;
+  width: 85%;
+  top: 45%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 auto;
+}
+
+.drums_key {
+  background-color: black;
+  background: #000000a8;
+  width: 10%;
+  border: solid 3px #711b1b;
+  color: aliceblue;
+  font-weight: 750;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 0.5%;
+  -webkit-transition: all 0.06s;
+  transition: all 0.06s;
+}
+
+.key > span {
+  color: burlywood;
+}
+
+.drums .playing {
+  position: relative;
+  border: solid 3px #fff176;
+  -webkit-box-shadow: 0 0 10px whitesmoke;
+          box-shadow: 0 0 10px whitesmoke;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.sint .playing {
+  position: relative;
+  -webkit-box-shadow: 0 0 10px whitesmoke;
+          box-shadow: 0 0 10px whitesmoke;
+  background-color: lightgray;
+}
+
+.sint_blackKeys .playing {
+  position: relative;
+  -webkit-box-shadow: 0 0 10px whitesmoke;
+          box-shadow: 0 0 10px whitesmoke;
+  background-color: #110c0c;
+}
+
+.togle {
+  position: absolute;
+  top: 5%;
+  left: 80%;
+  width: 12%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.togle > button {
+  border: none;
+  width: 49%;
+  -webkit-box-shadow: 0 0 7px white;
+          box-shadow: 0 0 7px white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #c4c4c4;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+button:active {
+  color: gray;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.activ_button {
+  background-color: wheat;
+}
+
+.hide {
+  display: none;
+}
+
+.sint {
+  position: relative;
+  width: 700px;
+  height: 60%;
+  margin: 0 auto;
+  top: 25%;
+}
+
+.sint_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 25%;
+  background-color: #000000de;
+  border-radius: 5px 5px 0 0;
+  color: whitesmoke;
+  font-weight: 800;
+}
+
+.sint_title > h1 {
+  -webkit-box-shadow: 0 0 5px white;
+          box-shadow: 0 0 5px white;
+}
+
+.sint_whitekey {
+  width: 14%;
+  height: 100%;
+  background-color: whitesmoke;
+  border-radius: 0 0 5px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sint_blackKeys {
+  width: 92%;
+  left: 4%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.sint_blackKey {
+  width: 10%;
+  height: 26vh;
+  margin-bottom: -150px;
+  background-color: #2c2c2c;
+  z-index: 100;
+  border-radius: 0 0 8px 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: whitesmoke;
+}
+
+.sint_keys {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 75%;
+}
+
+@media (max-width: 960px) {
+  .container {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 760px) {
+  .sint_whitekey > h3,
+  .sint_blackKey > h3 {
+    display: none;
+  }
+  .drums {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100vh;
+    top: 0;
+    background: #00000029;
+    width: 40%;
+  }
+  .drums_key {
+    width: 80%;
+  }
+  .sint_title {
+    display: none;
+  }
+  .sint {
+    height: 100%;
+    top: 5%;
+  }
+  .sint_keys {
+    width: 100%;
+    height: 90%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .sint_whitekey {
+    width: 70%;
+    border-radius: 0 5px 5px 0;
+    height: 14%;
+  }
+  .sint_blackKeys {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 90%;
+    left: 0;
+    top: 5%;
+    width: 10%;
+  }
+  .sint_blackKey {
+    border-radius: 0 5px 5px 0;
+    width: 420%;
+    height: 9vh;
+    margin-bottom: 0;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media (max-width: 580px) {
+  .sint {
+    width: 420px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .togle {
+    top: 1%;
+    left: 68%;
+    width: 30%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
