@@ -58,6 +58,10 @@
   color: burlywood;
 }
 
+.key {
+  cursor: pointer;
+}
+
 .drums .playing {
   position: relative;
   border: solid 3px #fff176;
@@ -215,6 +219,18 @@ button:active {
           justify-content: space-between;
   width: 100%;
   height: 75%;
+}
+
+h3 {
+  height: 2%;
+}
+
+.indicator {
+  height: 7px;
+  width: 7px;
+  border: solid 3px whitesmoke;
+  border-radius: 50px;
+  margin-left: 15px;
 }
 
 @media (max-width: 960px) {

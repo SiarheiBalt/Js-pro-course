@@ -2,6 +2,7 @@ let drums = document.querySelector(".drums");
 let synth = document.querySelector(".sint");
 let dramsBtn = document.querySelector(".dramsBtn");
 let sintBtn = document.querySelector(".sintBtn");
+let indicator = document.querySelector(".indicator");
 
 dramsBtn.disabled = true;
 const changeInstrument = (insrtrument) => {
@@ -34,9 +35,11 @@ const playSound = (e) => {
   audio.currentTime = 0;
   audio.play();
   key.classList.add("playing");
+  indicator.style.backgroundColor = "lightyellow";
   setTimeout(() => {
     key.classList.remove("playing");
+    indicator.style.backgroundColor = "black";
   }, 120);
 };
 document.addEventListener("keydown", playSound);
-document.addEventListener("click", playSound);
+document.addEventListener("mousedown", playSound);
